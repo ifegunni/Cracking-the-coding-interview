@@ -59,3 +59,32 @@ def stringCompression(string):
 if __name__ == '__main__':
     x = "aabcccccaaa"
     print(stringCompression(x))
+
+    
+
+ # A different approach, comparing the current character with the next element in the string. 
+   def stringCompression(string):
+    res = []
+
+    count = 1
+
+    for i in range(len(string)-1): # len(string) - 1: because we are comparing the value with the next value. if the we compare the last value with the next value(no value) then we get an error
+        if string[i] == string[i+1]:
+            count += 1
+        else:
+            res += string[i] + str(count)
+            count = 1
+    res += string[i] + str(count)
+    # return(res)
+
+    res = "".join(res)
+
+    if len(res) < len(string):
+        return res
+    else:
+        return string
+
+
+if __name__ == '__main__':
+    x = "aabcccccaaa"
+    print(stringCompression(x))
