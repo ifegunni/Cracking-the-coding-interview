@@ -17,7 +17,7 @@ def stringCompression(string):
             res += prev + str(count)  #if not equal start adding the string to the new string and
             prev = char    #set previous to current character and take not of occurence
             count = 1  #by initializing count to 1
-
+    res += prev + str(countConsecutive)  #this last bit is called the edge case and it is important to capture the last bit of the string.
     if len(res) < len(string):
         return(res)
     else:
@@ -46,7 +46,7 @@ def stringCompression(string):
             res += prev + str(countConsecutive)
             prev = char
             countConsecutive = 1
-
+    res += prev + str(countConsecutive)
     res = ''.join(res)
 
     if len(res) < len(string):
