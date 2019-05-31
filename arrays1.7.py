@@ -56,3 +56,16 @@ if __name__ == '__main__':
     
     
     
+#In place solution with O(n2) time complexity and O(1) space complexity
+def rotate(matrix):
+    n = len(matrix)
+    matrix.reverse()
+    for i in range(n):
+        for j in range(i): #only change
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]  # also changed
+    return matrix
+
+if __name__ == '__main__':
+    matrix = [[1,2,3], [4,5,6], [7,8,9]]
+    print(matrix)
+    print(rotate(matrix))
