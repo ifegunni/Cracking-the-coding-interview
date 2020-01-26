@@ -24,6 +24,25 @@ if __name__ == '__main__':
     j = "Mr John Smith "
     print(URLify(j))
     
+    
+ #Correction  -  this works
+def URLify(word):
+    str = ""
+    word = reversed(word)
+    begin = False
+    for i in word:
+        if i == " " and not begin:
+            begin = True
+        elif i == " ":
+            str += "%20"
+        else:
+            str += i
+    return str[::-1]
+    
+if __name__ == '__main__':
+    j = "Mr John Smith "
+    print(URLify(j))
+    
  
  
  
